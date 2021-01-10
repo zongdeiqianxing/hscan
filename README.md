@@ -1,7 +1,7 @@
 
 ### 0x01 hscan介绍
 #### hscan是什么
-hscan是一款旨在使用一条命令替代渗透前的多条扫描命令，通过集成crawlergo扫描和xray扫描、dirsearch、nmap、jsfinder、nikto等工具，并使用-u \ -f  \ -d 等参数进行扫描目标方式的管理，最后利用docker安装完相关依赖进行封装，形成一款docker参数化扫描的工具。
+hscan是一款旨在使用一条命令替代渗透前的多条扫描命令，通过集成crawlergo扫描和xray扫描、dirsearch、nmap、jsfinder、nikto等工具，并使用-u \ -f  \ -d 等参数进行扫描目标方式的管理，最后利用docker安装完相关依赖进行封装，形成一款docker参数化扫描的工具。  
 使用-d参数时输入域名，脚本自动使用oneforall遍历子域名并传入扫描
 
 #### hscan做了哪些
@@ -23,14 +23,14 @@ hscan是一款旨在使用一条命令替代渗透前的多条扫描命令，通
 
 ### 0x02 hscan使用
 
-#### 1 拉取代码  
-运行时会添加当前目录进入容器运行，一面方便更改代码，一面是报告生成需要映射出来
+#### 1 拉取代码并build镜像
 ```
-https://github.com/zongdeiqianxing/hscan
+git clone https://github.com/zongdeiqianxing/hscan.git
+docker build -t hscan .
 ```
 #### 2 在目录下执行命令，或直接执行docker_run.sh
 ```
-docker run -ti -v `pwd`/:/root/ zongdeiqianxing/hscan:v1 -u testphp.vulnweb.com
+docker run -ti --rm -v `pwd`/:/root/ hscan:latest -u testphp.vulnweb.com
 ```
 其中：
 ```
@@ -43,9 +43,7 @@ Usage:
 #### 3 扫描完毕后需要手动多按几次`ctrl c`退出，之后即可在目录下看到html文件和url文件，其中html文件为xray扫描输出，url文件为其他工具的扫描输出
 ![image](img/22.png)
 ![image](img/33.png)
-
 ![image](img/44.png)
-
 ![image](img/55.png)
 
 
