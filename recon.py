@@ -96,13 +96,7 @@ class scan_deal():
 			if self.judge_all_threading_status():
 				sys.exit("** end scan **")
 
-def untar():
-	def untar():
-		if os.path.exists('tools/dirsearch.zip'):
-			os.system("for tar in tools/*.zip; do unzip -d tools $tar; done")
-			os.system("mv tools/dirsearch.zip tools/dirsearch.zip.bak")
 def BruteDomain(Domain):
-	untar()
 	print("Brute domain: " + Domain)
 	#print(os.system("docker run -it --rm -v `pwd`/OneForAll/results/:/OneForAll/results/ -v `pwd`/OneForAll/config/:/OneForAll/config/ oneforall --target " + Domain + " run"))
 	print(os.system('python3 tools/OneForAll/oneforall.py --target ' + Domain + ' run'))
@@ -255,7 +249,6 @@ def fileScan(filename):
 	os.system("mv xray.log /tmp")
 
 def urlScan(url,url_scan=True):
-	untar()
 	#run xray
 	global	xray_threading_exists
 	url = url_deal(url)
@@ -314,4 +307,4 @@ Usage:
 	except KeyboardInterrupt:
 		exit("ctrl+c exit")
 
-''
+
