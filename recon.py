@@ -171,7 +171,7 @@ def crwalergo_control(url):
 
 	global request_threading_exists
 	if request_threading_exists == 0:
-		t = threading.Thread(target=crawlergp_request,args=(url,))
+		t = threading.Thread(target=crawlergp_request,args=(url,),daemon=True)
 		t.start()
 		request_threading_exists = 1
 	return
@@ -247,6 +247,7 @@ def fileScan(filename):
 				urlScan(subdomainName,url_scan=False)
 	print("scaned over")
 	os.system("mv xray.log /tmp")
+	exit()
 
 def urlScan(url,url_scan=True):
 	#run xray
@@ -257,12 +258,13 @@ def urlScan(url,url_scan=True):
 	outputfile= os.path.join(savePath,url.domain()+now+'-xrayScan.html')
 	if xray_threading_exists == 0 :
 		xray_threading_exists = 1
-		t = threading.Thread(target=xray_run,args=(outputfile,))
+		t = threading.Thread(target=xray_run,args=(outputfile,),daemon=True)
 		t.start()
 	Scan(url)
 	print(url.domain() + " scaned over")
 	if url_scan:
 		os.system("mv xray.log /tmp")
+		exit()
 	
 
 def xray_run(output_file):
