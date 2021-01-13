@@ -16,7 +16,7 @@ RUN pip3 install simplejson requests bs4 prettytable
 
 ADD . /root/
 WORKDIR /root/
-RUN if [ ! -f "tools/install.lock" ];then for tar in tools/*.zip; do unzip -d tools $tar; done fi
+RUN if [ ! -f "tools/install.lock" ];then for zip in tools/*.zip; do unzip -d tools $zip; done; touch tools/install.lock; fi
 RUN touch tools/install.lock
 RUN pip3 install -r ./tools/OneForAll/requirements.txt
 ENTRYPOINT ["python3","recon.py"]
