@@ -40,7 +40,7 @@ Usage:
     python3 recon.py -d domain          #-d参数使用时，输入主域名，自动使用OneForAll工具查找所有子域名，后自动使用Scan模块扫描。
 ```
 
-#### 3 扫描完毕后需要手动多按几次`ctrl c`退出，之后即可在目录下看到html文件和url文件，其中html文件为xray扫描输出，url文件为其他工具的扫描输出
+#### 3 扫描完毕后后即可在目录下看到html文件和url文件，其中html文件为xray扫描输出，url文件为其他工具的扫描输出
 ![image](img/22.png)
 ![image](img/33.png)
 ![image](img/44.png)
