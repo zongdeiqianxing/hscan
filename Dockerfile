@@ -19,7 +19,7 @@ RUN sed -i s@/archive.ubuntu.com/@/mirrors.aliyun.com/@g /etc/apt/sources.list \
 && apt update \
 && apt install -y google-chrome-stable \
 && pip3 install simplejson requests bs4 prettytable \
-&& /bin/bash -c 'if [ ! -f "tools/install.lock" ];then for zip in tools/*.zip; do unzip -d tools $zip; done; touch tools/install.lock; fi' \
+&& if [ ! -f "tools/install.lock" ];then for zip in tools/*.zip; do unzip -d tools $zip; done; touch tools/install.lock; fi \
 && pip3 install -r ./tools/OneForAll/requirements.txt
 
 ENTRYPOINT ["python3","recon.py"]
