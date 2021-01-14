@@ -1,4 +1,4 @@
-### 注：已经着手重构代码，后续整改会方便用户自定义增加工具、自定义自己需要的扫描模块、同时把crawlergo和jsfinder扫描的域名重新去重添加到扫描列等等 感谢大家支持
+
 ### 0x01 hscan介绍
 #### hscan是什么
 hscan是一款旨在使用一条命令替代渗透前的多条扫描命令，通过集成crawlergo扫描和xray扫描、dirsearch、nmap、jsfinder、nikto等工具，并使用-u \ -f  \ -d 等参数进行扫描目标方式的管理，最后利用docker安装完相关依赖进行封装，形成一款docker参数化扫描的工具。  
