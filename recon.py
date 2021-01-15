@@ -283,7 +283,12 @@ def xray_status():
 		return True
 	else:
 		return False
-
+	
+def extraZip():
+    if not os.path.exists("tools/install.lock"):
+        print("extra")
+        os.system("for zip in tools/*.zip; do unzip -d ./tools $zip; done;")
+	
 if __name__ == '__main__':
 	Usage='''
 Usage:
@@ -291,7 +296,7 @@ Usage:
 	python3 recon.py -f filename		#-f参数使用时，为每行正则匹配域名，已测试的可适配OneforAll、subDoaminBrute的outut文件；手写域名进入也可；
 	python3 recon.py -d domain			#-d参数使用时，输入主域名，自动使用OneForAll工具查找所有子域名，后自动使用Scan模块扫描。
 '''
-
+	extraZip()
 	try:
 		opts, args = getopt.getopt(sys.argv[1:],"hu:f:d:",["url=","file=","domain="])
 		for opt,arg in opts:
