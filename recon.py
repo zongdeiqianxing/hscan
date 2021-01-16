@@ -285,9 +285,9 @@ def xray_status():
 		return False
 	
 def extraZip():
-    if not os.path.exists("tools/install.lock"):
-        print("extra")
-        os.system("for zip in tools/*.zip; do unzip -d ./tools $zip; done;")
+	if not os.path.exists("tools/install.lock"):
+		print("extra")
+		os.system("for zip in tools/*.zip; do unzip -d ./tools $zip; done;")
 	
 if __name__ == '__main__':
 	Usage='''
@@ -313,5 +313,3 @@ Usage:
 		print(Usage)
 	except KeyboardInterrupt:
 		exit("ctrl+c exit")
-
-
