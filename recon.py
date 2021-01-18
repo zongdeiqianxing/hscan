@@ -288,6 +288,7 @@ def extraZip():
 	if not os.path.exists("tools/install.lock"):
 		print("extra")
 		os.system("for zip in tools/*.zip; do unzip -d ./tools $zip; done;")
+		os.system("touch tools/install.lock")
 	
 if __name__ == '__main__':
 	Usage='''
